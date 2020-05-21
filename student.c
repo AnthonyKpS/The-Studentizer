@@ -116,7 +116,7 @@ int update_student(student student_t, node *head)
     //Checking if the ID is present and returning its pointer
     node* check = (node *) find_student(student_t.id, head);
 
-    if (!check)
+    if (!check || student_t.id < 0)
         return 0;
 
     //New ID - New name
