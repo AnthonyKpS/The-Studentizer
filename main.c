@@ -125,6 +125,29 @@ int main()
         print_menu();
         input("%d", &prompt, "!!! There is no such option, please try again !!!\n");
     }
+    
+    // Freeing the used memory
+    // Check if there is no entry
+    
+    if(head->stud.id == -1)
+    {
+        free(head);
+    }
+    else
+    {
+        // Keeping the node for deletion and the next node
+        node *node_delete = head;
+        node *node_next;
+
+        while (node_delete != NULL)
+        {
+           node_next = node_delete->next;
+           free(node_delete);
+           node_delete = node_next;
+        }
+        
+    }
+    
     puts("Exiting...");
     return 0;
 }
